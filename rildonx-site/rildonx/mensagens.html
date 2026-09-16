@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mensagens · RildonX</title>
+<meta name="description" content="RildonX — ecossistema digital da Rildon.">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-page="messenger">
+<div class="app" id="app-root">
+<div class="sidebar-backdrop" id="sidebar-backdrop" onclick="toggleSidebar(false)"></div>
+<aside class="sidebar">
+  <div class="logo">
+    <div class="logo-bolt">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="#0d1c40"><path d="M13 2 3 14h7l-1 8 11-14h-8l1-6z"/></svg>
+    </div>
+    <div>
+      <div class="logo-text">RiLDON<span>X</span></div>
+      <div class="logo-tag">Excelência operacional</div>
+    </div>
+  </div>
+
+  <nav class="nav">
+    <a href="index.html" class="nav-item" data-page="inicio">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      Início
+    </a>
+    <a href="mural.html" class="nav-item" data-page="feed">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v5"/></svg>
+      Mural
+    </a>
+    <a href="mensagens.html" class="nav-item" data-page="messenger">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+      Mensagens
+    </a>
+
+    <div class="nav-gap"></div>
+
+    <a href="calendario.html" class="nav-item" data-page="calendario">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+      Calendário
+    </a>
+    <a href="tarefas.html" class="nav-item" data-page="tarefas">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 12l2 2 4-4"/></svg>
+      Tarefas
+    </a>
+    <a href="projetos.html" class="nav-item" data-page="projetos">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+      Projetos
+    </a>
+    <a href="documentos.html" class="nav-item" data-page="documentos">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+      Documentos
+    </a>
+
+    <div class="nav-gap"></div>
+
+    <a href="meu-espaco.html" class="nav-item" data-page="meuespaco">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      Meu espaço
+    </a>
+    <a href="grupos.html" class="nav-item" data-page="grupos">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      Grupos
+    </a>
+  </nav>
+
+  <div class="sidebar-spacer"></div>
+
+  <div class="sidebar-bottom nav">
+    <a href="#" class="nav-item logout-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+      Sair
+    </a>
+  </div>
+</aside>
+<div class="main">
+  <header class="topbar">
+    <button class="icon-btn mobile-menu-btn" id="mobile-menu-btn" onclick="toggleSidebar()" title="Menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <div class="search-box">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" id="global-search" placeholder="Buscar pessoas, mensagens, projetos, documentos...">
+    </div>
+    <div class="topbar-spacer"></div>
+    <div class="topbar-right">
+      <button class="icon-btn" title="Ajuda">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      </button>
+      <div class="notif-wrap">
+        <button class="icon-btn" id="notif-btn" onclick="toggleNotifications(event)" title="Notificações">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          <span class="badge">5</span>
+        </button>
+        <div class="notif-dropdown" id="notif-dropdown">
+          <div class="notif-dropdown-head">
+            <h3>Atividade recente</h3>
+            <span class="see-all">Ver todas</span>
+          </div>
+          <div class="activity-list">
+            <div class="activity-row">
+              <div class="task-avatar" style="border-radius:9px;">JP</div>
+              <div class="activity-text"><b>João Pedro</b> atualizou o projeto Campanha 35 Anos <span class="activity-sub" style="display:block;">Projeto · Campanha 35 Anos</span></div>
+              <div class="activity-time">há 20 min</div>
+            </div>
+            <div class="activity-row">
+              <div class="activity-icon" style="background:var(--orange-bg);color:var(--orange);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/></svg></div>
+              <div class="activity-text"><b>Marketing</b> publicou um novo aviso <span class="activity-sub" style="display:block;">Aviso · Promoção Gauss</span></div>
+              <div class="activity-time">há 1h</div>
+            </div>
+            <div class="activity-row">
+              <div class="task-avatar" style="border-radius:9px;">V</div>
+              <div class="activity-text"><b>Você</b> foi adicionado à tarefa Revisar material da campanha <span class="activity-sub" style="display:block;">Tarefa · Campanha 35 Anos</span></div>
+              <div class="activity-time">há 2h</div>
+            </div>
+            <div class="activity-row">
+              <div class="task-avatar" style="border-radius:9px;">MF</div>
+              <div class="activity-text"><b>Maria Fernanda</b> comentou na tarefa Post para Instagram <span class="activity-sub" style="display:block;">Tarefa · Mídias Sociais</span></div>
+              <div class="activity-time">há 3h</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="user-chip">
+        <div class="avatar">A</div>
+        <div class="user-meta">
+          <div class="user-name">Adson</div>
+          <div class="user-role">Analista de Marketing</div>
+        </div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+    </div>
+  </header>
+  <div class="content">
+<section class="page-view" id="page-messenger" style="display:block;">
+<div class="page-head">
+      <div>
+        <h1>Messenger</h1>
+        <p>Converse, compartilhe e colabore com sua equipe.</p>
+      </div>
+      <button class="btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        Nova conversa
+      </button>
+    </div>
+
+    <div class="messenger-shell">
+      <div class="conv-list">
+        <div class="conv-search">
+          <div class="search-box" style="max-width:none;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input placeholder="Buscar conversas...">
+          </div>
+        </div>
+        <div class="conv-tabs">
+          <span class="active">Todas</span>
+          <span>Não lidas</span>
+          <span>Favoritas</span>
+          <span>Grupos</span>
+        </div>
+        <div class="conv-scroll">
+          <div class="conv-item active">
+            <div class="conv-avatar group"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+            <div class="conv-body">
+              <div class="top-line"><b>Marketing Geral</b><span class="time">14:32</span></div>
+              <div class="preview"><p>Camila: Pessoal, o briefing da campanha...</p><span class="unread">5</span></div>
+            </div>
+          </div>
+          <div class="conv-item">
+            <div class="conv-avatar">JP<span class="online-dot"></span></div>
+            <div class="conv-body">
+              <div class="top-line"><b>João Pedro</b><span class="time">14:28</span></div>
+              <div class="preview"><p>Beleza, já vou revisar e te retorno.</p><span class="unread">2</span></div>
+            </div>
+          </div>
+          <div class="conv-item">
+            <div class="conv-avatar group">D</div>
+            <div class="conv-body">
+              <div class="top-line"><b>Design</b><span class="time">14:15</span></div>
+              <div class="preview"><p>Mariana: Enviou uma imagem 🖼</p><span class="unread">1</span></div>
+            </div>
+          </div>
+          <div class="conv-item">
+            <div class="conv-avatar">MF<span class="online-dot"></span></div>
+            <div class="conv-body">
+              <div class="top-line"><b>Maria Fernanda</b><span class="time">13:47</span></div>
+              <div class="preview"><p>Ok! Vamos alinhar mais tarde.</p></div>
+            </div>
+          </div>
+          <div class="conv-item">
+            <div class="conv-avatar group" style="background:var(--orange-bg);color:var(--orange);">35</div>
+            <div class="conv-body">
+              <div class="top-line"><b>Campanha 35 Anos</b><span class="time">13:20</span></div>
+              <div class="preview"><p>Adson: Atualizei o cronograma no projeto.</p></div>
+            </div>
+          </div>
+          <div class="conv-item">
+            <div class="conv-avatar group" style="background:var(--green-bg);color:var(--green);">CO</div>
+            <div class="conv-body">
+              <div class="top-line"><b>Comercial</b><span class="time">12:58</span></div>
+              <div class="preview"><p>Carlos: Tudo certo com a proposta!</p></div>
+            </div>
+          </div>
+          <div class="conv-item">
+            <div class="conv-avatar">LM<span class="online-dot"></span></div>
+            <div class="conv-body">
+              <div class="top-line"><b>Lucas Matos</b><span class="time">12:10</span></div>
+              <div class="preview"><p>Você: Obrigado!</p></div>
+            </div>
+          </div>
+          <div class="conv-item">
+            <div class="conv-avatar group">EP</div>
+            <div class="conv-body">
+              <div class="top-line"><b>Eventos &amp; Parcerias</b><span class="time">11:35</span></div>
+              <div class="preview"><p>Fernanda: Confirmado o evento para...</p></div>
+            </div>
+          </div>
+          <div class="conv-item">
+            <div class="conv-avatar group" style="background:var(--purple-bg);color:var(--purple);">TI</div>
+            <div class="conv-body">
+              <div class="top-line"><b>Suporte de TI</b><span class="time">10:22</span></div>
+              <div class="preview"><p>Chamado #1247 atualizado.</p></div>
+            </div>
+          </div>
+        </div>
+        <div style="padding:12px 16px;"><a href="#" class="post-link">Ver mais conversas</a></div>
+      </div>
+
+      <div class="chat-panel">
+        <div class="chat-head">
+          <div class="conv-avatar group"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+          <div><b>Marketing Geral</b><div class="sub">9 membros · 5 online</div></div>
+          <div class="chat-head-icons">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+          </div>
+        </div>
+        <div class="chat-body">
+          <div class="chat-daylabel">Hoje</div>
+          <div class="msg">
+            <div class="conv-avatar">CS</div>
+            <div class="msg-content">
+              <b>Camila Santos</b><span class="msg-time">14:32</span>
+              <div class="bubble">Pessoal, o briefing da campanha de Dia dos Pais está pronto para revisão. Podem dar uma olhada e deixar os feedbacks até amanhã?</div>
+              <div><span class="reaction-chip">👍 3</span> <span class="reaction-chip">❤️ 2</span></div>
+            </div>
+          </div>
+          <div class="msg self">
+            <div class="conv-avatar">A</div>
+            <div class="msg-content">
+              <span class="msg-time">14:34 ✓✓</span><b>Você</b>
+              <div class="bubble">Perfeito, Camila! Já vou revisar aqui e adiciono minhas observações ainda hoje.</div>
+            </div>
+          </div>
+          <div class="msg">
+            <div class="conv-avatar">JP</div>
+            <div class="msg-content">
+              <b>João Pedro</b><span class="msg-time">14:35</span>
+              <div class="bubble">Vou revisar a parte do planejamento de mídia e retorno com os ajustes.</div>
+              <div><span class="reaction-chip">👍 1</span></div>
+            </div>
+          </div>
+          <div class="msg">
+            <div class="conv-avatar">ML</div>
+            <div class="msg-content">
+              <b>Mariana Lima</b><span class="msg-time">14:36</span>
+              <div class="bubble">Estou finalizando os criativos, envio uma prévia ainda nessa tarde.</div>
+              <div><span class="reaction-chip">❤️ 1</span></div>
+            </div>
+          </div>
+          <div class="msg self">
+            <div class="conv-avatar">A</div>
+            <div class="msg-content">
+              <span class="msg-time">14:37 ✓✓</span>
+              <div class="file-bubble">
+                <div class="doc-icon pdf">PDF</div>
+                <div><b>Briefing_Campanha_Dia_dos_Pais.pdf</b><span>PDF · 2.4 MB</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="chat-input">
+          <div class="icons">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+          </div>
+          <input placeholder="Digite uma mensagem...">
+          <div class="icons">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          </div>
+          <div class="send-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div>
+        </div>
+      </div>
+
+      <div class="details-panel">
+        <div class="details-panel-head">
+          <h3>Detalhes da conversa</h3>
+          <button><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+        </div>
+        <div class="group-hero"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+        <h4>Marketing Geral <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5z"/></svg></h4>
+        <div class="meta">Grupo · Criado em 12/03/2024</div>
+
+        <h5>Descrição</h5>
+        <p class="desc">Canal para comunicação geral do time de Marketing da Rildon.</p>
+
+        <h5>Membros (9)</h5>
+        <div class="member-row"><div class="conv-avatar" style="width:32px;height:32px;">A<span class="online-dot"></span></div><div><b>Adson Silva (você)</b><span>Administrador</span></div></div>
+        <div class="member-row"><div class="conv-avatar" style="width:32px;height:32px;">CS<span class="online-dot"></span></div><div><b>Camila Santos</b><span>Administradora</span></div></div>
+        <div class="member-row"><div class="conv-avatar" style="width:32px;height:32px;">JP<span class="online-dot"></span></div><div><b>João Pedro</b><span>Membro</span></div></div>
+        <div class="member-row"><div class="conv-avatar" style="width:32px;height:32px;">ML<span class="online-dot"></span></div><div><b>Mariana Lima</b><span>Membro</span></div></div>
+        <div class="member-row"><div class="conv-avatar" style="width:32px;height:32px;">LM<span class="online-dot"></span></div><div><b>Lucas Matos</b><span>Membro</span></div></div>
+        <a href="#" class="post-link" style="display:block;margin-top:4px;">Ver todos</a>
+
+        <h5>Arquivos compartilhados</h5>
+        <div class="file-mini"><div class="doc-icon pdf">PDF</div><div><b>Briefing_Campanha_Dia_dos_Pais.pdf</b><span>PDF · 2.4 MB</span></div></div>
+        <div class="file-mini"><div class="doc-icon xlsx">XLS</div><div><b>Cronograma_Marketing_Maio.xlsx</b><span>XLSX · 48 KB</span></div></div>
+        <div class="file-mini"><div class="doc-icon pptx">PPT</div><div><b>Ideias_Campanha_Dia_dos_Pais.pptx</b><span>PPTX · 5.7 MB</span></div></div>
+        <a href="#" class="post-link" style="display:block;margin-top:2px;">Ver todos</a>
+
+        <button class="leave-btn">Sair do grupo</button>
+      </div>
+    </div>
+</section>
+  </div>
+</div>
+</div>
+
+<div class="modal-backdrop" id="modal-backdrop" onclick="closeModal()">
+  <div class="modal-panel wide" id="modal-nova-tarefa" onclick="event.stopPropagation()">
+    <div class="modal-head">
+      <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 12l2 2 4-4"/></svg>Nova tarefa</h3>
+      <button class="modal-close-btn" onclick="closeModal()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    </div>
+    <div class="modal-body">
+      <div class="field">
+        <label>Nome da tarefa</label>
+        <input type="text" id="nt-nome" placeholder="Ex: Revisar material da campanha">
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label>Prazo</label>
+          <input type="date" id="nt-prazo" value="2026-09-20">
+        </div>
+        <div class="field">
+          <label>Etapa</label>
+          <div class="choice-group" id="nt-etapa-group">
+            <button type="button" class="choice-btn selected" data-etapa="Pendente" onclick="selectChoice(this,'nt-etapa-group')">Pendente</button>
+            <button type="button" class="choice-btn" data-etapa="Em andamento" onclick="selectChoice(this,'nt-etapa-group')">Em andamento</button>
+            <button type="button" class="choice-btn" data-etapa="Concluída" onclick="selectChoice(this,'nt-etapa-group')">Concluída</button>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <label>Prioridade</label>
+        <div class="choice-group" id="nt-prioridade-group">
+          <button type="button" class="choice-btn opt-alta" data-priority="Alta" onclick="selectChoice(this,'nt-prioridade-group')">Alta</button>
+          <button type="button" class="choice-btn opt-media selected" data-priority="Média" onclick="selectChoice(this,'nt-prioridade-group')">Média</button>
+          <button type="button" class="choice-btn opt-baixa" data-priority="Baixa" onclick="selectChoice(this,'nt-prioridade-group')">Baixa</button>
+        </div>
+      </div>
+      <div class="field">
+        <label>Checklist</label>
+        <div class="checklist" id="nt-checklist">
+          <div class="checklist-item">
+            <input type="text" placeholder="Item da checklist...">
+            <button type="button" class="rm-btn" onclick="this.parentElement.remove()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+          </div>
+        </div>
+        <button type="button" class="add-line-btn" onclick="addChecklistItem()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Adicionar item</button>
+      </div>
+      <div class="field">
+        <label>Adicionar pessoas</label>
+        <div class="people-picker" id="nt-people-group">
+          <div class="people-chip" data-name="Adson" onclick="togglePeopleChip(this)"><div class="mini-avatar">A</div>Adson</div>
+          <div class="people-chip" data-name="Camila" onclick="togglePeopleChip(this)"><div class="mini-avatar" style="background:var(--purple);">C</div>Camila</div>
+          <div class="people-chip" data-name="João Pedro" onclick="togglePeopleChip(this)"><div class="mini-avatar" style="background:var(--orange);">J</div>João Pedro</div>
+          <div class="people-chip" data-name="Mariana" onclick="togglePeopleChip(this)"><div class="mini-avatar" style="background:var(--green);">M</div>Mariana</div>
+          <div class="people-chip" data-name="Lucas" onclick="togglePeopleChip(this)"><div class="mini-avatar" style="background:var(--teal);">L</div>Lucas</div>
+          <div class="people-chip" data-name="Fernanda" onclick="togglePeopleChip(this)"><div class="mini-avatar" style="background:var(--red);">F</div>Fernanda</div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn secondary" onclick="closeModal()">Cancelar</button>
+      <button class="btn" onclick="submitNovaTarefa()">Criar tarefa</button>
+    </div>
+  </div>
+
+  <div class="modal-panel" id="modal-setor-pessoal" onclick="event.stopPropagation()">
+    <div class="modal-head">
+      <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Setor pessoal</h3>
+      <button class="modal-close-btn" onclick="closeModal()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    </div>
+    <div class="modal-body">
+      <div class="option-list">
+        <button type="button" class="option-btn" onclick="submitSetorPessoal('Solicitar uma conversa')">
+          <div class="opt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
+          <div><b>Solicitar uma conversa</b><span>Agende um bate-papo com o RH</span></div>
+          <div class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></div>
+        </button>
+        <button type="button" class="option-btn" onclick="submitSetorPessoal('Documentos/declarações')">
+          <div class="opt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+          <div><b>Documentos/declarações</b><span>Solicite documentos oficiais</span></div>
+          <div class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></div>
+        </button>
+        <button type="button" class="option-btn" onclick="submitSetorPessoal('Ponto')">
+          <div class="opt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg></div>
+          <div><b>Ponto</b><span>Ajustes e consulta de ponto</span></div>
+          <div class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></div>
+        </button>
+        <button type="button" class="option-btn" onclick="submitSetorPessoal('Atestado/afastamento')">
+          <div class="opt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/></svg></div>
+          <div><b>Atestado/afastamento</b><span>Envie um atestado médico</span></div>
+          <div class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></div>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-panel" id="modal-suporte-ti" onclick="event.stopPropagation()">
+    <div class="modal-head">
+      <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/></svg>Suporte de TI</h3>
+      <button class="modal-close-btn" onclick="closeModal()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    </div>
+    <div class="modal-body">
+      <div class="field">
+        <label>Categoria do chamado</label>
+        <div class="choice-group" id="ti-categoria-group">
+          <button type="button" class="choice-btn selected" data-cat="Impressora" onclick="selectChoice(this,'ti-categoria-group')">Impressora</button>
+          <button type="button" class="choice-btn" data-cat="Internet" onclick="selectChoice(this,'ti-categoria-group')">Internet</button>
+          <button type="button" class="choice-btn" data-cat="Ramal" onclick="selectChoice(this,'ti-categoria-group')">Ramal</button>
+          <button type="button" class="choice-btn" data-cat="Compra/solicitação" onclick="selectChoice(this,'ti-categoria-group')">Compra/solicitação</button>
+        </div>
+      </div>
+      <div class="field">
+        <label>Descreva o problema</label>
+        <textarea id="ti-texto" maxlength="150" placeholder="Descreva brevemente o que está acontecendo..." oninput="document.getElementById('ti-charcount').textContent = this.value.length + '/150'"></textarea>
+        <div class="charcount" id="ti-charcount">0/150</div>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn secondary" onclick="closeModal()">Cancelar</button>
+      <button class="btn" onclick="submitSuporteTI()">Enviar solicitação</button>
+    </div>
+  </div>
+
+  <div class="modal-panel wide" id="modal-reserva-sala" onclick="event.stopPropagation()">
+    <div class="modal-head">
+      <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Solicitar sala de reunião</h3>
+      <button class="modal-close-btn" onclick="closeModal()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    </div>
+    <div class="modal-body" id="reserva-form-view">
+      <div id="reserva-conflict-slot"></div>
+      <div class="field">
+        <label>Sala</label>
+        <div class="choice-group" id="rs-sala-group">
+          <button type="button" class="choice-btn selected" data-sala="Sala de Reunião" onclick="selectChoice(this,'rs-sala-group')">Sala de reunião</button>
+          <button type="button" class="choice-btn" data-sala="Auditório" onclick="selectChoice(this,'rs-sala-group')">Auditório</button>
+        </div>
+      </div>
+      <div class="field-row-3">
+        <div class="field"><label>Data</label><input type="date" id="rs-data" value="2026-09-14"></div>
+        <div class="field"><label>Início</label><input type="time" id="rs-inicio" value="14:00"></div>
+        <div class="field"><label>Fim</label><input type="time" id="rs-fim" value="15:00"></div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label>Quantidade de participantes</label><input type="number" id="rs-qtd" min="1" value="4"></div>
+        <div class="field"><label>Motivo / assunto</label><input type="text" id="rs-motivo" placeholder="Ex: Reunião com fornecedor Gauss"></div>
+      </div>
+      <div class="field">
+        <label>Participantes</label>
+        <div class="people-picker" id="rs-people-group">
+          <div class="people-chip" data-name="Adson" onclick="togglePeopleChip(this)"><div class="mini-avatar">A</div>Adson</div>
+          <div class="people-chip" data-name="Camila" onclick="togglePeopleChip(this)"><div class="mini-avatar" style="background:var(--purple);">C</div>Camila</div>
+          <div class="people-chip" data-name="João Pedro" onclick="togglePeopleChip(this)"><div class="mini-avatar" style="background:var(--orange);">J</div>João Pedro</div>
+          <div class="people-chip" data-name="Mariana" onclick="togglePeopleChip(this)"><div class="mini-avatar" style="background:var(--green);">M</div>Mariana</div>
+          <div class="people-chip" data-name="Lucas" onclick="togglePeopleChip(this)"><div class="mini-avatar" style="background:var(--teal);">L</div>Lucas</div>
+          <div class="people-chip" data-name="Fernanda" onclick="togglePeopleChip(this)"><div class="mini-avatar" style="background:var(--red);">F</div>Fernanda</div>
+        </div>
+      </div>
+      <div class="field">
+        <label>Recursos necessários</label>
+        <div class="checkbox-grid">
+          <label class="checkbox-opt"><input type="checkbox" value="TV / tela">📺 TV / tela</label>
+          <label class="checkbox-opt"><input type="checkbox" value="Notebook">💻 Notebook</label>
+          <label class="checkbox-opt"><input type="checkbox" value="Videoconferência">🎥 Videoconferência</label>
+          <label class="checkbox-opt"><input type="checkbox" value="Quadro">📝 Quadro</label>
+          <label class="checkbox-opt"><input type="checkbox" value="Café / água">☕ Café / água</label>
+          <label class="checkbox-opt"><input type="checkbox" value="Outro">🔌 Outro</label>
+        </div>
+      </div>
+    </div>
+    <div class="modal-body" id="reserva-confirm-view" style="display:none;"></div>
+    <div class="modal-foot" id="reserva-form-foot">
+      <button class="btn secondary" onclick="closeModal()">Cancelar</button>
+      <button class="btn" onclick="submitReservaSala()">Solicitar reserva</button>
+    </div>
+  </div>
+
+  <div class="modal-panel" id="modal-politicas" onclick="event.stopPropagation()">
+    <div class="modal-head">
+      <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Políticas internas</h3>
+      <button class="modal-close-btn" onclick="closeModal()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    </div>
+    <div class="modal-body">
+      <div class="policy-list">
+        <div class="policy-row"><div class="doc-icon pdf">PDF</div><div><b>Regulamento Interno</b><span>Atualizado em 10/01/2026 · 1.4 MB</span></div><button class="dl-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></button></div>
+        <div class="policy-row"><div class="doc-icon docx">DOC</div><div><b>Missão, Visão e Valores</b><span>Atualizado em 03/02/2025 · 320 KB</span></div><button class="dl-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></button></div>
+        <div class="policy-row"><div class="doc-icon pdf">PDF</div><div><b>Código de Conduta e Ética</b><span>Atualizado em 22/11/2025 · 980 KB</span></div><button class="dl-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></button></div>
+        <div class="policy-row"><div class="doc-icon xlsx">XLS</div><div><b>Política de Benefícios</b><span>Atualizado em 14/03/2026 · 210 KB</span></div><button class="dl-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></button></div>
+        <div class="policy-row"><div class="doc-icon pdf">PDF</div><div><b>Política de Segurança da Informação</b><span>Atualizado em 05/06/2026 · 640 KB</span></div><button class="dl-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></button></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast-wrap" id="toast-wrap"></div>
+
+<script src="assets/js/app.js"></script>
+</body>
+</html>
